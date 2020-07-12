@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Layout from "./hoc/Layout/Layout";
+import Auxilury from "./hoc/Auxilury/Auxilury";
+import BurgerBuilder from "./container/BurgerBuilder/BurgerBuilder";
+import Checkout from "./container/Checkout/Checkout";
+import { Route } from "react-router-dom";
+import Orders from "./../src/container/Orders/Orders";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Auxilury>
+      <Layout>
+        <Route path="/" exact component={BurgerBuilder} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/orders/" component={Orders} />
+      </Layout>
+    </Auxilury>
   );
 }
 
